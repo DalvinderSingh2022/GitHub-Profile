@@ -6,12 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/0606937758.js" crossorigin="anonymous"></script>
     <script src="script.js" type="module"></script>
+    <script src="home.js" type="module" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
     <title>GitHub</title>
 </head>
 
 <body>
-    <button>click</button>
+    <main>
+        <h1>GitHub Profile</h1>
+        <h3>A web app to showcase your GitHub profile and find others.</h3>
+        <div class="search_field">
+            <input type="search" placeholder="search...">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+    </main>
+    <section id="searchResult">
+        <h1 class="header"></h1>
+        <div class="users_container">
+        </div>
+    </section>
 </body>
 
 </html>

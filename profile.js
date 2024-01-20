@@ -1,8 +1,12 @@
 import { getApiData } from "./script.js";
 
+const user = location.hash.replace("#", "");
+renderProfileCard(user);
+renderRepos(user, 1, 10);
+
 async function renderProfileCard(search) {
     const profileCardEl = document.getElementById("profile");
-    const profile = await getApiData(search);
+    const profile = await getApiData(`users/${search}`);
     let profileCardHtml = "";
 
     profileCardHtml += `
@@ -62,7 +66,7 @@ async function renderProfileCard(search) {
 
 async function renderRepos(user, page, per_page) {
     const profileReposEl = document.getElementById("repos");
-    const repos = await getApiData(`${user}/repos?page=${page}&per_page=${per_page}`);
+    const repos = await getApiData(`users/${user}/repos?page=${page}&per_page=${per_page}`);
     let profileReposHtml = "";
 
     repos.forEach(repo => {
@@ -90,10 +94,3 @@ async function renderRepos(user, page, per_page) {
 
     profileReposEl.innerHTML = profileReposHtml;
 }
-
-window.addEventListener("DOMContentLoaded", () => {
-    const user = location.hash.replace("#", "");
-    console.log(user)
-    renderProfileCard(user);
-    renderRepos(user, 1, 10)
-})

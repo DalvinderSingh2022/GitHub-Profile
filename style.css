@@ -7,6 +7,102 @@
     box-sizing: content-box;
 }
 
+:root {
+    --pruple-1: #8845cf;
+    --pruple-2: #5d4db9;
+    --pruple-3: #392661;
+
+    --text: #fcfcfc;
+    --text-sec: #f1e9fd;
+
+    --black: #3f2757;
+    --background-1: #382f4b;
+    --background-2: #453e53;
+}
+
 body {
-    background-color: #f2f5f7;
+    background-color: var(--background-1);
+}
+
+section {
+    width: min(1200px - 2em, 100% - 2em);
+    margin: auto;
+    padding: 1em;
+}
+
+section .header {
+    color: var(--text);
+    font-size: 1.85em;
+    width: fit-content;
+    position: relative;
+}
+
+section .header::before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(to left, var(--pruple-2), var(--pruple-1));
+    width: 40%;
+    height: 4px;
+    bottom: -4px;
+    left: -8px;
+    border-radius: 4px;
+}
+
+body main {
+    background: linear-gradient(to top, transparent, var(--pruple-1), var(--pruple-2), var(--pruple-3));
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 2em);
+    min-height: 64vh;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4em;
+    padding: 1em;
+    color: var(--text);
+    margin-bottom: -3em;
+}
+
+.message {
+    margin: auto;
+    color: var(--text);
+    font-size: 18px;
+    text-align: center;
+}
+
+.message i {
+    font-size: 34px;
+    margin: 0 0 18px;
+}
+
+.message svg {
+    animation: rotate 1.5s infinite linear;
+}
+
+.message circle {
+    stroke-width: 4px;
+    stroke: var(--text);
+    fill: none;
+    stroke-linecap: round;
+    stroke-dasharray: 160;
+    animation: spin 6s infinite ease-in-out;
+}
+
+@keyframes spin {
+    0% {
+        stroke-dashoffset: 600;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
