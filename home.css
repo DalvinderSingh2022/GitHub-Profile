@@ -1,13 +1,8 @@
-body {
-    display: flex;
-    flex-direction: column;
-}
-
 main .search_field {
     max-width: 840px;
     margin: 2em auto;
     border-radius: 60px;
-    box-shadow: 0 12px 32px 2px var(--text), 0 12px 24px 0 var(--pruple-2);
+    box-shadow: 0 12px 32px 2px var(--text), 0 12px 24px 0 var(--purple-2);
     width: 100%;
     color: var(--black);
     position: relative;
@@ -32,7 +27,7 @@ body main input {
     aspect-ratio: 1;
     border: none;
     border-radius: 50%;
-    background: linear-gradient(45deg, var(--pruple-2), var(--pruple-1));
+    background: linear-gradient(45deg, var(--purple-2), var(--purple-1));
     display: grid;
     place-items: center;
     cursor: pointer;
@@ -49,24 +44,23 @@ main h3 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     padding: 2em 0;
-    gap: 12px;
+    gap: 18px;
 }
 
 .users_container .user_wrapper {
     position: relative;
     padding: 1em;
-    background-color: var(--background-2);
+    background: linear-gradient(to bottom, var(--purple-3), var(--purple-2));
     max-width: 210px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1em;
+    gap: 1.4em;
     border-radius: 8px;
 }
 
 .users_container .user_wrapper:hover {
-    box-shadow: 0 0 24px 2px var(--background-2),
-        0 12px 24px 0 var(--pruple-3);
+    background: var(--purple-2);
 }
 
 .user_wrapper .user_avatar {
@@ -76,7 +70,7 @@ main h3 {
 }
 
 .users_container .user_wrapper:hover .user_avatar {
-    transform: scale(1.05) translateY(-12px);
+    transform: scale(1.1) translateY(-12px);
 }
 
 .user_wrapper .user_name {

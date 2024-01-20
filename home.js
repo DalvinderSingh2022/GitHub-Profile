@@ -5,13 +5,13 @@ const searchHeader = document.querySelector("#searchResult .header");
 const searchUsers = document.querySelector("#searchResult .users_container");
 
 searchBtn.addEventListener("click", async () => {
-    const input = document.querySelector(".search_field input");
-    if (input.value) {
+    const serachInput = document.querySelector(".search_field serachInput");
+    if (serachInput.value) {
         searchHeader.innerText = `searching...`;
         loading(searchUsers);
         let html = '';
 
-        const result = await getApiData(`search/users?q=${input.value}`);
+        const result = await getApiData(`search/users?q=${serachInput.value}`);
         if (result?.items?.length) {
             result.items.forEach(user => {
                 html += `
@@ -21,17 +21,17 @@ searchBtn.addEventListener("click", async () => {
                 </div>`
             })
         } else if (result?.items?.length === 0) {
-            html = `<div class="message">${input.value} Not found</div>`;
+            html = `<div class="message">${serachInput.value} Not found</div>`;
         } else {
             html = `
             <div class="message">
                 <i class="fa-solid fa-circle-exclamation"></i>
-                <div>Error occur while searching for ${input.value}</div>
+                <div>Error occur while searching for ${serachInput.value}</div>
             </ div>`
         }
 
         searchUsers.innerHTML = html;
-        searchHeader.innerText = `Result for ${input.value}`;
-        input.value = "";
+        searchHeader.innerText = `Result for ${serachInput.value}`;
+        serachInput.value = "";
     }
 });

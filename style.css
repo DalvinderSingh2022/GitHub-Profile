@@ -8,20 +8,23 @@
 }
 
 :root {
-    --pruple-1: #8845cf;
-    --pruple-2: #5d4db9;
-    --pruple-3: #392661;
+    --purple-1: #8845cf;
+    --purple-2: #5d4db9;
+    --purple-3: #392661;
 
     --text: #fcfcfc;
-    --text-sec: #f1e9fd;
+    --text-sec: #c1bbcb;
 
     --black: #3f2757;
-    --background-1: #382f4b;
-    --background-2: #453e53;
+    --background: #382f4b;
 }
 
 body {
-    background-color: var(--background-1);
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    color: var(--text);
+    min-height: 100vh;
 }
 
 section {
@@ -31,7 +34,6 @@ section {
 }
 
 section .header {
-    color: var(--text);
     font-size: 1.85em;
     width: fit-content;
     position: relative;
@@ -40,7 +42,7 @@ section .header {
 section .header::before {
     content: "";
     position: absolute;
-    background: linear-gradient(to left, var(--pruple-2), var(--pruple-1));
+    background: linear-gradient(to left, var(--purple-2), var(--purple-1));
     width: 40%;
     height: 4px;
     bottom: -4px;
@@ -49,7 +51,7 @@ section .header::before {
 }
 
 body main {
-    background: linear-gradient(to top, transparent, var(--pruple-1), var(--pruple-2), var(--pruple-3));
+    background: linear-gradient(to top, transparent, var(--purple-1), var(--purple-2), var(--purple-3));
     display: flex;
     flex-direction: column;
     width: calc(100% - 2em);
@@ -58,7 +60,6 @@ body main {
     align-items: center;
     font-size: 1.4em;
     padding: 1em;
-    color: var(--text);
     margin-bottom: -3em;
 }
 
