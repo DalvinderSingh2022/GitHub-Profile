@@ -43,7 +43,7 @@ body #profile {
     font-weight: 400;
 }
 
-.profile_container .profile_login {
+.profile_container .profile_name {
     margin-top: -8px;
     color: var(--text-sec);
 }
@@ -92,7 +92,7 @@ body #profile {
 #repos .repos_container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    padding: 2em 1em;
+    padding-top: 2em;
     gap: 1em;
     height: fit-content;
     align-items: stretch;
