@@ -1,17 +1,17 @@
-import { getApiData, loading } from "./script.js";
+import { getApiData, renderLoading, renderMessage } from "./script.js";
 
 const searchBtn = document.querySelector(".search_field button");
 const searchHeader = document.querySelector("#searchResult .header");
 const searchUsers = document.querySelector("#searchResult .users_container");
 
 searchBtn.addEventListener("click", async () => {
-    const serachInput = document.querySelector(".search_field serachInput");
-    if (serachInput.value) {
+    const searchInput = document.querySelector(".search_field input");
+    if (searchInput.value) {
         searchHeader.innerText = `searching...`;
-        loading(searchUsers);
+        renderLoading(searchUsers);
         let html = '';
 
-        const result = await getApiData(`search/users?q=${serachInput.value}`);
+        const result = await getApiData(`search/users?q=${searchInput.value}`);
         if (result?.items?.length) {
             result.items.forEach(user => {
                 html += `
@@ -20,18 +20,18 @@ searchBtn.addEventListener("click", async () => {
                     <a href="/profile.html#${user.login}" class="user_name" title="${user.login}">${user.login}</a>
                 </div>`
             })
-        } else if (result?.items?.length === 0) {
-            html = `<div class="message">${serachInput.value} Not found</div>`;
         } else {
-            html = `
-            <div class="message">
-                <i class="fa-solid fa-circle-exclamation"></i>
-                <div>Error occur while searching for ${serachInput.value}</div>
-            </ div>`
+            html = renderMessage(result?.items, searchInput.value);
         }
 
         searchUsers.innerHTML = html;
-        searchHeader.innerText = `Result for ${serachInput.value}`;
-        serachInput.value = "";
+        searchHeader.innerText = `Result for ${searchInput.value}`;
+        searchInput.value = "";
+    }
+});
+
+window.addEventListener("keyup", event => {
+    if (event.keyCode === 13) {
+        searchBtn.click();
     }
 });

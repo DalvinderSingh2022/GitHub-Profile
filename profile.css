@@ -40,8 +40,9 @@ body #profile {
     box-shadow: 0 12px 32px 2px var(--text), 0 12px 24px 0 var(--purple-2);
     background-color: var(--text);
     border-radius: 8px;
-    margin: 2em 0;
+    margin: 2em auto;
     font-size: .8em;
+    width: min(100% - 2em, 720px);
 }
 
 .profile_container .profile_table .item {
@@ -71,7 +72,7 @@ body #profile {
     box-shadow: 0 0 72px 0 var(--text);
 }
 
-#repos {
+#repos .repos_container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     padding: 2em 1em;
@@ -84,10 +85,16 @@ body #profile {
     background: linear-gradient(to bottom, var(--purple-3), var(--purple-2));
     border-radius: 8px;
     padding: 0.5em 1em 1em;
+    box-shadow: 0 0 6px 0 var(--purple-2);
 }
 
 #repos .repo_container:hover {
     background: var(--purple-2);
+}
+
+.repo_container .repo_number {
+    font-size: 1.4em;
+    margin-right: 4px;
 }
 
 .repo_container .repo_name {
@@ -100,6 +107,7 @@ body #profile {
     display: flex;
     gap: 6px;
     padding-top: 8px;
+    flex-wrap: wrap;
 }
 
 .repo_container .repo_description {
@@ -119,4 +127,63 @@ body #profile {
     border: none;
     box-shadow: 0 0 36px 0 var(--purple-3);
     text-transform: capitalize;
+}
+
+#pagination {
+    display: flex;
+    margin: 1em 1em 2em;
+    gap: 2em;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#pagination .number_buttons {
+    display: flex;
+    gap: 8px;
+}
+
+#pagination button,
+#pagination .perpage_button {
+    width: 36px;
+    height: 36px;
+    border-radius: 20px;
+    font-size: 1em;
+    background-color: var(--purple-2);
+    border: none;
+}
+
+#pagination button:not(:disabled),
+#pagination .perpage_button {
+    background: linear-gradient(45deg, var(--purple-3), var(--purple-2));
+    box-shadow: 0 0 12px 0 var(--purple-2);
+    cursor: pointer;
+    color: var(--text-sec);
+}
+
+#pagination>button {
+    transform: scale(1.1);
+}
+
+#pagination button:hover,
+#pagination button.active {
+    background: var(--purple-2);
+}
+
+
+#pagination .perpage_button {
+    width: unset;
+    display: flex;
+    align-items: center;
+    color: var(--text);
+    padding: 0 8px 0 16px;
+}
+
+#pagination .perpage_button input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: inherit;
+    text-align: center;
+    font-size: 1.1em;
+    max-width: 56px;
 }
