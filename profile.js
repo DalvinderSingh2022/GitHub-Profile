@@ -93,8 +93,8 @@ async function renderProfileCard() {
         <div class="profile_container">
             <div class="profile_wrapper">
                 <div class="profile_container">
-                    <h2 class="profile_name">${profile.name}</h2>
-                    <h4 class="profile_login">@${profile.login}</h4>`;
+                    <h2 class="profile_login">${profile.login}</h2>
+                    <h4 class="profile_name">@${profile.name}</h4>`;
 
         if (profile.bio) {
             html += `<div class="profile_bio"><h4>${profile.bio}</h4></div>`;
