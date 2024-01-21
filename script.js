@@ -12,9 +12,9 @@ export async function getApiData(url) {
 
 export function renderLoading(container) {
     container.innerHTML = `
-        <div class="message">
-            <svg  width="80" height="80">
-            <circle r="20" cx="40" cy="40"></circle>
+    <div class="message">
+    <svg  width="80" height="80">
+    <circle r="20" cx="40" cy="40"></circle>
         </div>`;
 }
 
@@ -29,3 +29,5 @@ export function renderMessage(data, message) {
             </ div>`);
     }
 }
+
+export const recentSearch = JSON.parse(localStorage.getItem("recentsearch")) || [];

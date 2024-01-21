@@ -40,6 +40,22 @@ main h3 {
     text-align: center;
 }
 
+.result #recentSearch {
+    order: 3;
+}
+
+.result #searchResult {
+    order: 2;
+}
+
+#searchResult .header {
+    display: none;
+}
+
+.result #searchResult .header {
+    display: flex;
+}
+
 .users_container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));

@@ -1,4 +1,4 @@
-import { getApiData, renderLoading, renderMessage } from "./script.js";
+import { getApiData, recentSearch, renderLoading, renderMessage } from "./script.js";
 
 const paginationEl = document.getElementById("pagination");
 const paginationNumberBtns = paginationEl.querySelector("#number_buttons");
@@ -79,6 +79,15 @@ async function renderProfileCard() {
         totalPage = Math.ceil(totalrepos / perPage);
         perPageInput.value = totalrepos < 10 ? totalrepos : 10;
         renderPaginationBtns();
+
+        if (!recentSearch.find(user => user.id == profile.id)) {
+            recentSearch.push({
+                id: profile.id,
+                login: profile.login,
+                avatar_url: profile.avatar_url
+            });
+        }
+        localStorage.setItem("recentsearch", JSON.stringify(recentSearch));
 
         html += `
         <div class="profile_container">

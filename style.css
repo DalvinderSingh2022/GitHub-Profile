@@ -34,12 +34,18 @@ section {
 }
 
 section .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .heading {
     font-size: 1.85em;
     width: fit-content;
     position: relative;
 }
 
-section .header::before {
+.header .heading::before {
     content: "";
     position: absolute;
     background: linear-gradient(to left, var(--purple-2), var(--purple-1));
@@ -48,6 +54,17 @@ section .header::before {
     bottom: -4px;
     left: -8px;
     border-radius: 4px;
+}
+
+.header button {
+    border: none;
+    font-size: 1.2em;
+    color: var(--text);
+    padding: 6px 12px;
+    cursor: pointer;
+    background: linear-gradient(45deg, var(--purple-2), var(--purple-1));
+    box-shadow: 0 0 6px 0 var(--purple-2);
+    border-radius: 20px;
 }
 
 body main {
