@@ -28,8 +28,8 @@ body {
 }
 
 section {
-    width: min(1200px - 2em, 100% - 2em);
-    margin: auto;
+    width: min(1320px - 2em, 100% - 2em);
+    margin: 0 auto;
     padding: 1em;
 }
 

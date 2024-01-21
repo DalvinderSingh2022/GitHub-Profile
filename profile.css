@@ -111,12 +111,26 @@ body #profile {
 }
 
 .repo_container .repo_description {
-    padding: 10px 0 14px;
+    padding: 10px 0 0;
     color: var(--text-sec);
 }
 
-.repo_container .repo_language {
-    font-weight: 300;
+.repo_container .repo_details {
+    margin: 12px -6px;
+}
+
+.repo_container .repo_details>span:not(:last-of-type) {
+    border-right: 2px solid var(--text-sec);
+}
+
+.repo_container .repo_details>span {
+    padding: 0 6px;
+}
+
+.repo_container .repo_stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
 }
 
 .repo_container .repo_topics span {

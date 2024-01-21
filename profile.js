@@ -51,7 +51,6 @@ function renderPaginationBtns() {
     let html = "";
 
     for (let index = firstBtn; index < firstBtn + 5; index++) {
-        console.log(totalPage, index)
         if (totalPage <= index) {
             break;
         }
@@ -102,14 +101,20 @@ async function renderProfileCard() {
 
         if (profile.twitter_username) {
             html += `
-                <a target="_blank" href="https://www.twitter.com/${profile.twitter_username}">
+                <a target="_blank" href="https://www.twitter.com/${profile.twitter_username}" title="${profile.twitter_username}">
                     <i class="fa-brands fa-twitter"></i>
                 </a>`;
         }
         if (profile.email) {
             html += `
-                <a target="_blank" href="${profile.email}">
+                <a target="_blank" href="mailto:${profile.email}" title="mailto:${profile.email}">
                     <i class="fa-solid fa-at"></i>
+                </a>`;
+        }
+        if (profile.blog) {
+            html += `
+                <a target="_blank" href="${profile.blog}" title="${profile.blog}">
+                    <i class="fa-solid fa-link"></i>
                 </a>`;
         }
 
@@ -158,14 +163,31 @@ async function renderRepos() {
             if (repo.description) {
                 html += `<h4 class="repo_description">${repo.description}</h4>`;
             }
+
+            html += `<div class="repo_details">`;
+
             if (repo.language) {
-                html += `<h5 class="repo_language" title="language">${repo.language}</h4>
-            <div class="repo_topics">`;
+                html += `<span class="repo_language" title="language">${repo.language}</span>`;
             }
+
+            html += `<span class="repo_stars">
+                        <i class="fa-solid fa-star"></i>
+                        <span title="language">${repo.stargazers_count}</span>
+                    </span>`;
+
+            if (repo.updated_at) {
+                html += `
+                <span class="repo_language" title="language">
+                    Last updated on ${new Date(repo?.updated_at?.split("T")[0]).toDateString()}
+                </span>`;
+            }
+
+            html += `</div><div class="repo_topics">`;
+
             if (repo.topics.length) {
-                repo.topics.forEach(topic => html += `<span>${topic}</span>`);
+                repo.topics.forEach(topic => html += `<span> ${topic}</span> `);
             }
-            html += `</div></div>`;
+            html += `</div></div> `;
         });
     } else {
         html = renderMessage(repos, "Repositories");
